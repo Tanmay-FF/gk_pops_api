@@ -5,8 +5,8 @@ artifact.
 
 ## Architecture
 
-`pops_api_v1/` ships with its own self-contained, headless tracking engine at
-`pops_api_v1/api_engine/`. `HeadlessTrackingEngine.process_video()` returns a
+`gk_pops_api` ships with its own self-contained, headless tracking engine at
+`api_engine/`. `HeadlessTrackingEngine.process_video()` returns a
 single dict (the `_tracking.json` structure).
 
 ## API
@@ -42,14 +42,14 @@ produced either way.
 ## Run locally (PowerShell)
 
 ```powershell
-# from inside pops_api_v1/
-cd pops_api_v1
+# from inside the repo root
+cd gk_pops_api
 $env:POPS_API_LOG_LEVEL = "DEBUG"
 python -m uvicorn main:app --host 0.0.0.0 --port 8080
 ```
 
 Install deps first with `pip install -r requirements.txt` (still from inside
-`pops_api_v1/`).
+the repo root).
 
 Submit a job:
 
