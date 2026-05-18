@@ -1,0 +1,22 @@
+# BoTSORT tracker config tuned for retail CCTV (fixed camera, people + carts at doorways)
+# Reference: https://docs.ultralytics.com/modes/track/
+
+tracker_type: botsort
+
+# --- Detection thresholds ---
+track_high_thresh: 0.3     # 1st association: lower than default (0.5) to catch partially-visible carts
+track_low_thresh: 0.1      # 2nd association: picks up low-confidence detections (ByteTrack-style fallback)
+new_track_thresh: 0.4      # minimum confidence to initialize a new track
+
+# --- Track lifecycle ---
+track_buffer: 120          # frames to keep a lost track alive (default 30). Higher because carts can be stationary/occluded longer
+match_thresh: 0.7          # IoU matching threshold for association (lowered from 0.8 for better occlusion recovery)
+fuse_score: true           # fuse detection confidence into IoU distance
+
+# --- Motion model (Kalman filter) ---
+gmc_method: sparseOptFlow  # camera motion compensation — good for fixed CCTV (minimal computation)
+
+# --- Appearance model (Re-ID) ---
+proximity_thresh: 0.5
+appearance_thresh: 0.25
+with_reid: false           # disabled — too compute heavy
