@@ -1,28 +1,12 @@
-# pops_api/requirements.txt — curated, slim dependency set.
-#
-# CUDA torch wheels: install with
-#     pip install -r pops_api/requirements.txt \
-#         --extra-index-url https://download.pytorch.org/whl/cu124
-# For CPU-only:
-#     pip install -r pops_api/requirements.txt \
-#         --extra-index-url https://download.pytorch.org/whl/cpu
-
-# --- HTTP / API ---
-fastapi>=0.111.0,<0.120
-uvicorn[standard]>=0.29.0,<1.0
-python-multipart>=0.0.9,<1.0
-pydantic>=2.7,<3.0
-pydantic-settings>=2.3,<3.0
-structlog>=24.1,<26.0
-
-# --- Engine runtime ---
-torch>=2.4,<3.0
-torchvision>=0.19,<1.0
-ultralytics>=8.3,<9.0
-opencv-python-headless>=4.10,<5.0
-numpy>=1.26,<2.5
-Pillow>=10.0,<12.0
-# Bundles a known-good ffmpeg binary (with NVENC support on Linux/Windows
-# CUDA images). Only used when a job opts into include_annotated_video,
-# but the import is unconditional so we keep it in the base wheel set.
-imageio-ffmpeg>=0.5,<1.0
+fastapi==0.136.1
+imageio_ffmpeg==0.6.0
+numpy==2.4.5
+opencv_python==4.13.0.92
+Pillow==12.2.0
+pydantic==2.13.4
+pydantic_settings==2.14.1
+starlette==1.0.0
+structlog==25.5.0
+torch==2.6.0+cu124
+torchvision==0.21.0+cu124
+ultralytics==8.4.19
