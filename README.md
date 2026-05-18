@@ -1,4 +1,4 @@
-# pops_api
+# gk_pops_api
 
 Minimal async HTTP backend that takes a video and returns the `_tracking.json`
 artifact.
